@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="noteprise_base_style" parent="@android:style/Theme.NoTitleBar">
+    </style>
+
+    <color name="translucent_black">#80000000</color>
+    <color name="translucent_gray">#30000000</color>
+    <color name="common_text_color">@android:color/black</color>
+    <color name="light_gray_color">#C8C8C8</color>
+
+    <dimen name="header_footer_bar_layout_height">40dp</dimen>
+    <dimen name="header_bar_title_text_size">16dp</dimen>
+
+    <color name="text_color_for_dark_background">@android:color/white</color>
+
+    <dimen name="header_progress_bar_width_height">30dp</dimen>
+    <dimen name="normal_margin_padding">10dp</dimen>
+    <dimen name="small_margin_padding">5dp</dimen>
+    <dimen name="large_margin_padding">15dp</dimen>
+    <dimen name="common_button_text_size">11dp</dimen>
+    <dimen name="common_button_icon_width_height">20dp</dimen>
+    <dimen name="common_button_height">35dp</dimen>
+    <dimen name="common_list_item_layout_height">45dp</dimen>
+    <dimen name="common_list_item_left_image_width_height">30dp</dimen>
+    <dimen name="common_text_size">14dp</dimen>
+    <dimen name="common_small_text_size">12dp</dimen>
+    <dimen name="common_large_text_size">18dp</dimen>
+    <dimen name="common_huge_text_size">20dp</dimen>
+    <dimen name="common_extra_large_text_size">24dp</dimen>
+    <dimen name="common_form_element_height">40dp</dimen>
+    <dimen name="common_spinner_height">55dp</dimen>
+
+    <integer name="common_text_area_no_of_lines">10</integer>
+
+    <dimen name="home_search_bar_height">50dp</dimen>
+    <dimen name="common_divider_width_height">1dp</dimen>
+    
+    <dimen name="common_list_section_layout_height">20dp</dimen>
+    
+    <dimen name="evernote_login_button_width">160dp</dimen>
+    <dimen name="evernote_login_button_height">40dp</dimen>
+    <dimen name="evernote_button_margin_bottom">50dp</dimen>
+
+</resources>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="@dimen/normal_margin_padding" >
+
+    <Spinner
+        android:id="@+id/create_note_notebook_list_spinner"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/common_form_element_height"
+        android:background="@drawable/common_spinner_selector"
+        android:prompt="@string/choose_notebook_prompt" />
+
+    <ImageView
+        android:layout_width="@dimen/common_button_icon_width_height"
+        android:layout_height="@dimen/common_button_icon_width_height"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/normal_margin_padding"
+        android:layout_marginTop="@dimen/normal_margin_padding"
+        android:src="@drawable/sf__edit_icon" />
+
+    <EditText
+        android:id="@+id/note_title_edit_text"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/common_form_element_height"
+        android:layout_below="@id/create_note_notebook_list_spinner"
+        android:layout_marginTop="@dimen/normal_margin_padding"
+        android:background="@drawable/common_edit_text_selector"
+        android:hint="Note Title"
+        android:padding="@dimen/small_margin_padding" />
+
+    <EditText
+        android:id="@+id/note_content_edit_text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/note_title_edit_text"
+        android:layout_marginTop="@dimen/normal_margin_padding"
+        android:background="@drawable/common_edit_text_selector"
+        android:gravity="top"
+        android:hint="Note Content"
+        android:inputType="textMultiLine"
+        android:lines="@integer/common_text_area_no_of_lines"
+        android:padding="@dimen/small_margin_padding" />
+
+</RelativeLayout>

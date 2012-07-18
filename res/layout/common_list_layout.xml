@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <ListView
+        android:id="@+id/common_list_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="@color/translucent_black"
+        android:dividerHeight="@dimen/common_divider_width_height"
+        android:listSelector="@drawable/common_view_selector"
+        android:padding="@dimen/normal_margin_padding" >
+    </ListView>
+
+    <TextView
+        android:id="@+id/common_list_no_results"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/large_margin_padding"
+        android:text="No results found"
+        android:textColor="@color/common_text_color"
+        android:textSize="@dimen/common_large_text_size"
+        android:visibility="gone" />
+
+</RelativeLayout>

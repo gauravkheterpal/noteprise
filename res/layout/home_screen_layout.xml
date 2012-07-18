@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/evernote_options_top_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_radio_button_background"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/home_search_bar_height"
+            android:layout_margin="@dimen/small_margin_padding"
+            android:background="@drawable/custom_search_background"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <EditText
+                android:id="@+id/search_query_edit_text"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/common_form_element_height"
+                android:layout_margin="@dimen/small_margin_padding"
+                android:layout_weight="1"
+                android:background="@drawable/common_search_field_background"
+                android:hint="Search"
+                android:paddingLeft="@dimen/small_margin_padding"
+                android:textSize="@dimen/common_text_size" />
+
+            <ImageButton
+                android:id="@+id/search_button"
+                android:layout_width="@dimen/common_form_element_height"
+                android:layout_height="@dimen/common_form_element_height"
+                android:layout_margin="@dimen/small_margin_padding"
+                android:layout_weight="0"
+                android:background="@drawable/search_bttn"
+                android:src="@drawable/common_view_selector" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/common_divider_width_height"
+            android:background="@color/translucent_black" />
+
+        <RadioGroup
+            android:id="@+id/search_criteria_radio_group"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="visible" >
+
+            <RadioButton
+                android:id="@+id/search_all_radio_button"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/common_form_element_height"
+                android:layout_weight="1"
+                android:background="@drawable/custom_radio_button_selector"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="All"
+                android:textSize="@dimen/common_small_text_size" />
+
+            <RadioButton
+                android:id="@+id/search_notebook_radio_button"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/common_form_element_height"
+                android:layout_weight="1"
+                android:background="@drawable/custom_radio_button_selector"
+                android:button="@null"
+                android:gravity="center"
+                android:text="Notebook"
+                android:textSize="@dimen/common_small_text_size" />
+
+            <RadioButton
+                android:id="@+id/search_tag_radio_button"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/common_form_element_height"
+                android:layout_weight="1"
+                android:background="@drawable/custom_radio_button_selector"
+                android:button="@null"
+                android:gravity="center"
+                android:text="Tag"
+                android:textSize="@dimen/common_small_text_size" />
+
+            <RadioButton
+                android:id="@+id/search_keyword_radio_button"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/common_form_element_height"
+                android:layout_weight="1"
+                android:background="@drawable/custom_radio_button_selector"
+                android:button="@null"
+                android:gravity="center"
+                android:text="Keyword"
+                android:textSize="@dimen/common_small_text_size" />
+        </RadioGroup>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/common_divider_width_height"
+            android:background="@color/translucent_black" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/notes_list_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="@color/translucent_black"
+        android:dividerHeight="@dimen/common_divider_width_height"
+        android:listSelector="@drawable/common_view_selector" >
+    </ListView>
+
+</LinearLayout>

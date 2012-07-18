@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/note_title_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/large_margin_padding"
+        android:textColor="@color/common_text_color"
+        android:textSize="@dimen/common_extra_large_text_size" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/note_title_text_view"
+        android:layout_margin="@dimen/normal_margin_padding"
+        android:background="@drawable/common_view_border"
+        android:padding="@dimen/normal_margin_padding" >
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/note_content_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/common_text_color"
+                android:textSize="@dimen/common_huge_text_size" />
+        </ScrollView>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="account_type">com.metacube.noteprise.login</string>
+	<string name="oauth_callback_url">https://login.salesforce.com/services/oauth2/success</string>
+	<string name="oauth_client_id">3MVG9Y6d_Btp4xp7TYnbVJx2W7iPeWGju0BzaRrm4HDO0q32dR3xmWgh4DCGWOhPZ2SF2RHFQIPME.KaoCQcm</string>
+	<string name="api_version">v23.0</string>
+</resources>

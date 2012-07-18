@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/common_list_item_layout_height"
+    android:padding="@dimen/small_margin_padding" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/normal_margin_padding"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/spinner_item_label_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/common_text_color"
+            android:textSize="@dimen/common_text_size" />
+
+        <TextView
+            android:id="@+id/spinner_item_sub_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin_padding"
+            android:textColor="@color/common_text_color"
+            android:textSize="@dimen/common_small_text_size"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</RelativeLayout>

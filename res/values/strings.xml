@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, NotepriseActivity!</string>
+    <string name="app_name">Noteprise</string>
+    
+    <string name="choose_object_prompt">Choose a object</string>
+    <string name="choose_field_prompt">Choose a field</string>
+    <string name="choose_notebook_prompt">Select a Notebook</string>
+
+</resources>
