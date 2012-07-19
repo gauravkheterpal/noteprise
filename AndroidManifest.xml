@@ -12,7 +12,7 @@
 	<uses-permission android:name="android.permission.USE_CREDENTIALS" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     
-    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="10" />
+    <uses-sdk android:minSdkVersion="9" android:targetSdkVersion="10" />
 
     <application
         android:name=".salesforce.NotepriseApplication"
