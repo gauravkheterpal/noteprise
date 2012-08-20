@@ -4,6 +4,7 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
+    <!--
     <TextView
         android:id="@+id/note_title_text_view"
         android:layout_width="wrap_content"
@@ -20,6 +21,7 @@
         android:background="@drawable/common_view_border"
         android:padding="@dimen/normal_margin_padding" >
 
+        
         <ScrollView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content" >
@@ -31,6 +33,17 @@
                 android:textColor="@color/common_text_color"
                 android:textSize="@dimen/common_huge_text_size" />
         </ScrollView>
+       
+
+        
+        
     </LinearLayout>
+    -->
+
+    <WebView
+        android:id="@+id/note_content_web_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@android:color/transparent" />
 
 </RelativeLayout>

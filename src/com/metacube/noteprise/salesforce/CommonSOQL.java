@@ -32,4 +32,9 @@ public class CommonSOQL
 		String query = SELECT_QUERY_PREFIX + displayField + FROM + object + ORDER_BY_SUFFIX + displayField;
 		return query;
 	}
+	
+	public static String getUpdateChatterFeedQuery()
+	{
+		return null;
+	}
 }

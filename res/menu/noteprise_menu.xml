@@ -3,10 +3,12 @@
 
     <item
         android:id="@+id/refresh_noteprise_menu_option"
-        android:title="Refresh"/>
+        android:title="Refresh"
+        android:visible="false" />
     <item
         android:id="@+id/signout_from_evernote_menu_option"
-        android:title="Signout from Evernote"/>
+        android:title="Signout from Evernote"
+        android:visible="false" />
     <item
         android:id="@+id/exit_noteprise_menu_option"
         android:title="Exit"/>

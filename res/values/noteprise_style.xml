@@ -20,6 +20,7 @@
     <dimen name="large_margin_padding">15dp</dimen>
     <dimen name="common_button_text_size">11dp</dimen>
     <dimen name="common_button_icon_width_height">20dp</dimen>
+    <dimen name="common_non_text_button_icon_width_height">30dp</dimen>
     <dimen name="common_button_height">35dp</dimen>
     <dimen name="common_list_item_layout_height">45dp</dimen>
     <dimen name="common_list_item_left_image_width_height">30dp</dimen>

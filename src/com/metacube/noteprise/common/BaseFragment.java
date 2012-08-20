@@ -30,6 +30,7 @@ public class BaseFragment extends Fragment
 	public String selectedObject, selectedField, selectedObjectLabel, selectedFieldLabel;
 	public AsyncTaskDataLoader backgroundDataLoader;
 	public RelativeLayout baseHeaderLayout;
+	public String screenTitle;
 	
 	@Override
 	public void onAttach(Activity activity) 
@@ -42,6 +43,11 @@ public class BaseFragment extends Fragment
 		this.salesforceRestClient = baseActivity.salesforceRestClient;
 		this.SF_API_VERSION = baseActivity.getString(R.string.api_version);
 		this.baseHeaderLayout = baseActivity.baseHeaderLayout;
+	}
+	
+	public void initFragment(String screenTitle)
+	{
+		this.screenTitle = screenTitle;
 	}
 	
 	@Override
@@ -64,6 +70,10 @@ public class BaseFragment extends Fragment
 	public void onResume() 
 	{
 		super.onResume();
+		if (screenTitle != null)
+		{
+			setHeaderTitle(screenTitle);
+		}		
 		updateData();
 	}
 	
@@ -71,6 +81,21 @@ public class BaseFragment extends Fragment
 	public void onDetach() 
 	{
 		super.onDetach();
+	}
+	
+	@Override
+	public void onStop() 
+	{
+		super.onStop();
+		setHeaderTitle(getString(R.string.app_name));
+	}
+	
+	public void setHeaderTitle(String title)
+	{
+		if (baseActivity.baseHeaderTitleTextView != null && Utilities.verifyStringData(title))
+		{
+			baseActivity.baseHeaderTitleTextView.setText(title);
+		}
 	}
 	
 	public void startEvernoteAuthentication()

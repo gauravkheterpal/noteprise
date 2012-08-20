@@ -38,7 +38,7 @@ public class BaseActivity extends FragmentActivity
 	public ProgressBar headerProgressBar;
 	public ProgressDialog commonProgressDialog;
 	public LinearLayout createNewNoteButton, deleteNoteButton, salesforceObjectsButton, mappingValuesContainer;
-	public TextView selectedObjectTextView, selectedFieldTextView;
+	public TextView selectedObjectTextView, selectedFieldTextView, baseHeaderTitleTextView;
 	public RelativeLayout baseHeaderLayout;
 	
 	public Boolean loggedInSalesforce = Boolean.FALSE;

@@ -3,6 +3,8 @@ package com.metacube.noteprise.core;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v4.app.FragmentManager;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -20,8 +22,9 @@ import com.metacube.noteprise.core.screens.CreateNewNoteScreen;
 import com.metacube.noteprise.core.screens.MainMenuScreen;
 import com.metacube.noteprise.core.screens.SalesforceObjectChooser;
 import com.metacube.noteprise.salesforce.SalesforceLoginUtility;
+import com.metacube.noteprise.util.NotepriseLogger;
 
-public class NotepriseActivity extends BaseActivity implements OnClickListener 
+public class NotepriseActivity extends BaseActivity implements OnClickListener
 {	
 	Button evernoteLoginButton;
 	Boolean authenticationStarted = false;
@@ -30,15 +33,21 @@ public class NotepriseActivity extends BaseActivity implements OnClickListener
     public void onCreate(Bundle savedInstanceState) 
     {
     	super.onCreate(savedInstanceState);
-    	setContentView(R.layout.welcome_screen_layout);        
+    	        
         FragmentManager.enableDebugLogging(Boolean.FALSE);    
         if (android.os.Build.VERSION.SDK_INT > 9) 
         {
         	StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitNetwork().build();
             StrictMode.setThreadPolicy(policy);
-        }
+        }        
+        setUpWelcomeScreen();   
+    }
+    
+    public void setUpWelcomeScreen()
+    {
+    	setContentView(R.layout.welcome_screen_layout);
         evernoteLoginButton = (Button) findViewById(R.id.evernote_login_button);
-        evernoteLoginButton.setOnClickListener(this);        
+        evernoteLoginButton.setOnClickListener(this);
     }
     
     @Override
@@ -117,6 +126,7 @@ public class NotepriseActivity extends BaseActivity implements OnClickListener
 	{
 		setContentView(R.layout.base_layout);
 		baseHeaderLayout = (RelativeLayout) findViewById(R.id.base_header_layout);
+		baseHeaderTitleTextView = (TextView) findViewById(R.id.base_header_title_text_view);
 		headerProgressBar = (ProgressBar) findViewById(R.id.header_progress_bar);
 		salesforceObjectsButton = (LinearLayout) findViewById(R.id.object_mapping_button_layout);
     	salesforceObjectsButton.setOnClickListener(this);
@@ -144,6 +154,16 @@ public class NotepriseActivity extends BaseActivity implements OnClickListener
 		salesforceLoginUtility.onAppResume();
 	}
 	
+	public void signOutFromEvernote()
+	{
+		if (evernoteSession != null)
+		{
+			evernoteSession.logOut();
+			noteprisePreferences.saveSignedInToEvernote(evernoteSession.isLoggedIn());
+			setUpWelcomeScreen();
+		}
+	}
+	
 	@Override
 	public void handleSalesforceLoginComplete() 
 	{
@@ -164,5 +184,52 @@ public class NotepriseActivity extends BaseActivity implements OnClickListener
 			return;
 		}
 		super.onBackPressed();		
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) 
+	{
+		getMenuInflater().inflate(R.menu.noteprise_menu, menu);
+		if (evernoteSession != null)
+		{
+			if (evernoteSession.isLoggedIn())
+			{
+				menu.findItem(R.id.refresh_noteprise_menu_option).setVisible(Boolean.TRUE);
+				menu.findItem(R.id.signout_from_evernote_menu_option).setVisible(Boolean.TRUE);
+			}
+			else
+			{
+				menu.findItem(R.id.refresh_noteprise_menu_option).setVisible(Boolean.FALSE);
+				menu.findItem(R.id.signout_from_evernote_menu_option).setVisible(Boolean.FALSE);
+			}
+		}
+		return super.onCreateOptionsMenu(menu);
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) 
+	{
+		switch(item.getItemId())
+		{
+			case R.id.refresh_noteprise_menu_option:
+			{
+				break;
+			}
+			case R.id.signout_from_evernote_menu_option:
+			{
+				signOutFromEvernote();
+				break;
+			}
+			case R.id.exit_noteprise_menu_option:
+			{
+				this.finish();
+				break;
+			}
+			default:
+			{
+				NotepriseLogger.logMessage("No menu action found for this menu item= " + item.getTitle());
+			}
+		}
+		return super.onOptionsItemSelected(item);
 	}
 }
