@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+ 
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				android:orientation="vertical"
+                android:layout_width="fill_parent" 
+                android:layout_height="fill_parent"
+                android:padding="5dip"
+                >
+
+	<LinearLayout android:id="@+id/toolbar" 
+	              android:orientation="horizontal"
+	              android:layout_width="fill_parent" 
+	              android:layout_height="wrap_content"
+	              android:padding="2dip"
+	              >
+	
+		<ToggleButton  
+					android:id="@+id/bold"
+					android:background="@drawable/button_toggle"
+		            android:layout_width="wrap_content"  
+		            android:layout_height="wrap_content" 
+		            android:textSize="10dip"
+		            android:textOn="B"
+		            android:textOff="B"
+		            android:textColor="#464646" />   
+		                    
+		<ToggleButton
+					android:id="@+id/italic"
+					android:background="@drawable/button_toggle"
+		            android:layout_width="wrap_content"  
+		            android:layout_height="wrap_content"
+		            android:textSize="10dip"
+		            android:textOn="I"
+		            android:textOff="I"
+		            android:textColor="#464646" />
+		             		            
+		<ToggleButton
+					android:id="@+id/underline"
+					android:background="@drawable/button_toggle"
+		            android:layout_width="wrap_content"  
+		            android:layout_height="wrap_content"
+		            android:textSize="10dip"
+		            android:textOn="U"
+		            android:textOff="U"
+		            android:textColor="#464646" />
+		            
+		<Button
+					android:id="@+id/size"
+					android:background="@drawable/button_toggle"
+		            android:layout_width="wrap_content"  
+		            android:layout_height="wrap_content"
+		            android:textSize="10dip"
+		            android:text=" SIZE "
+		            android:textColor="#000000" /> 
+		            
+		<Button
+					android:id="@+id/color"
+					android:background="@drawable/button_toggle"
+		            android:layout_width="wrap_content"  
+		            android:layout_height="wrap_content"
+		            android:textSize="10dip"
+		            android:text=" COLOR "
+		            android:textColor="#000000" /> 
+		            
+		<Button
+					android:id="@+id/link"
+					android:background="@drawable/button_toggle"
+		            android:layout_width="wrap_content"  
+		            android:layout_height="wrap_content"
+		            android:textSize="10dip"
+		            android:text=" LINK "
+		            android:textColor="#464646" /> 
+		           
+		<ToggleButton
+					android:id="@+id/html"
+					android:background="@drawable/button_toggle"
+		            android:layout_width="wrap_content"  
+		            android:layout_height="wrap_content"
+		            android:textSize="10dip"
+		            android:textOn=" HTML "
+		            android:textOff=" HTML "
+		            android:textColor="#464646" />
+		            
+
+<!-- 
+		            
+			<ToggleButton
+					android:id="@+id/strike"
+					android:background="@drawable/button_toggle"
+		            android:layout_width="wrap_content"  
+		            android:layout_height="wrap_content"
+		            android:layout_alignTop="@id/underline"
+		            android:layout_toRightOf="@id/underline"
+		            android:textSize="17dip"
+		            android:textOn="@string/strike"
+		            android:textOff="@string/strike"
+		            android:textColor="#464646" />
+		     
+			<Button
+					 android:id="@+id/link" 
+					 android:background="@drawable/button_toggle"
+		            android:layout_width="wrap_content"  
+		            android:layout_height="wrap_content"
+		            android:layout_alignTop="@id/strike"
+		            android:layout_toRightOf="@id/strike"
+		            android:textSize="17dip"
+		            android:textColor="#21759b"
+		            android:text="@string/link" />  
+		            
+			<ToggleButton
+					android:id="@+id/bquote"
+					android:background="@drawable/button_toggle"
+		            android:layout_width="wrap_content"  
+		            android:layout_height="wrap_content" 
+		            android:layout_alignTop="@id/link"
+		            android:layout_toRightOf="@id/link"
+		            android:textSize="17dip"
+		            android:textOn="b-quote"
+					android:textOff="b-quote"
+		            android:textColor="#464646" />
+ -->	
+	</LinearLayout>
+ 
+    <EditText android:id="@+id/content"
+              android:layout_width="fill_parent" 
+              android:layout_height="fill_parent"
+              android:scrollbars="vertical"
+              android:gravity="top" 
+              android:minLines="5"
+              android:autoText="true"
+              android:textColorLink="#21759b" /> 
+
+</LinearLayout>
+

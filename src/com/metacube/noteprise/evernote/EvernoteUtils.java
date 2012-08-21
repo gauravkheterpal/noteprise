@@ -54,6 +54,17 @@ public class EvernoteUtils
     	return noteContent;
 	}
 	
+	public static String stripEvernoteSuffixAndPrefix(String noteContent){
+		int start, end;
+		String content = null;
+		if(noteContent != null){				
+		start = noteContent.indexOf("<en-note>");
+		end = noteContent.indexOf("</en-note>");
+		content = noteContent.substring(start+9, end);
+		}
+		return content;
+	}
+	
 	public static List<Notebook> getAllNotebooks(String authToken, Client client)
 	{
 		List<Notebook> notebooks = null;
@@ -314,6 +325,30 @@ public class EvernoteUtils
 		try 
 		{			
 			return client.deleteNote(authToken, noteGuid);
+		} 
+		catch (EDAMUserException e) 
+		{
+			e.printStackTrace();
+		} 
+		catch (EDAMSystemException e) 
+		{
+			e.printStackTrace();
+		} 
+		catch (EDAMNotFoundException e) 
+		{
+			e.printStackTrace();
+		} 
+		catch (TException e) 
+		{
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static Note updateNote(String authToken, Client client,Note note){
+		try 
+		{			
+			 return client.updateNote(authToken, note);
 		} 
 		catch (EDAMUserException e) 
 		{

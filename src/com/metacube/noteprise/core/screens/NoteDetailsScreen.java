@@ -42,6 +42,7 @@ public class NoteDetailsScreen extends BaseFragment implements OnClickListener, 
 	//TextView noteTitleTextView;//, noteContentTextView;
 	WebView noteContentWebView;
 	//LinearLayout saveButton, editButton;
+	LinearLayout editButton;
 	LinearLayout topButtonBar;
 	RelativeLayout saveButton, publishToChatterButton;
 	String noteTitle, noteContent, noteGuid;
@@ -76,11 +77,11 @@ public class NoteDetailsScreen extends BaseFragment implements OnClickListener, 
     	topButtonBar = (LinearLayout) addViewToBaseHeaderLayout(inflater, R.layout.note_edit_screen_menu_bar_layout, R.id.button_menu_bar_layout);
     	saveButton = (RelativeLayout) topButtonBar.findViewById(R.id.common_save_image_button);
     	publishToChatterButton = (RelativeLayout) topButtonBar.findViewById(R.id.publish_to_chatter_image_button);
-    	//editButton = (LinearLayout) addViewToBaseHeaderLayout(inflater, R.layout.common_left_edit_button_layout, R.id.common_left_edit_button);
+    	editButton = (LinearLayout) addViewToBaseHeaderLayout(inflater, R.layout.common_left_edit_button_layout, R.id.common_left_edit_button);
     	baseActivity.deleteNoteButton.setOnClickListener(this);
     	saveButton.setOnClickListener(this);
     	publishToChatterButton.setOnClickListener(this);
-    	//editButton.setOnClickListener(this);
+    	editButton.setOnClickListener(this);
     	/*chatterPopUpMenu = new IcsListPopupWindow(baseActivity);
     	PopupMenuItem[] menuItems = {new PopupMenuItem(R.drawable.save_icon, R.string.app_name), new PopupMenuItem(R.drawable.edit_icon, R.string.hello)};
     	chatterPopupMenuAdapter = new PopupMenuAdapter(baseActivity, android.R.layout.simple_list_item_1, menuItems);
@@ -116,10 +117,12 @@ public class NoteDetailsScreen extends BaseFragment implements OnClickListener, 
 			}
 			commonMessageDialog.showDeleteNoteDialog(authToken, client, this);
 		}
-		/*else if (view == editButton)
+		else if (view == editButton)
 		{
-			changeScreen(new NotepriseFragment("NoteEditScreen", NoteEditScreen.class));
-		}*/
+		    Bundle args = new Bundle();
+		    args.putString("noteGuid", noteGuid);
+			changeScreen(new NotepriseFragment("NoteEditScreen", NoteEditScreen.class,args));
+		}
 		else if (view == publishToChatterButton)
 		{
 			TASK = PUBLISH_TO_MY_CHATTER_FEED;
@@ -144,7 +147,7 @@ public class NoteDetailsScreen extends BaseFragment implements OnClickListener, 
 		super.onStop();
 		removeViewFromBaseHeaderLayout(topButtonBar);
 		//removeViewFromBaseHeaderLayout(saveButton);
-		//removeViewFromBaseHeaderLayout(editButton);
+		removeViewFromBaseHeaderLayout(editButton);
 		baseActivity.createNewNoteButton.setVisibility(View.VISIBLE);
 		baseActivity.deleteNoteButton.setVisibility(View.GONE);
 	}
@@ -212,7 +215,7 @@ public class NoteDetailsScreen extends BaseFragment implements OnClickListener, 
 	    	noteContentWebView.loadData(noteContent, "text/html", "utf-8");
 	    	topButtonBar.setVisibility(View.VISIBLE);
 	    	//saveButton.setVisibility(View.VISIBLE);
-	    	//editButton.setVisibility(View.VISIBLE);
+	    	editButton.setVisibility(View.VISIBLE);
 		}
 		else if(TASK == DELETE_NOTE)
 		{
