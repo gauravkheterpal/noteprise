@@ -9,8 +9,12 @@ import org.apache.thrift.transport.TTransportException;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.webkit.WebView;
@@ -81,6 +85,7 @@ public class NoteDetailsScreen extends BaseFragment implements OnClickListener, 
     	baseActivity.deleteNoteButton.setOnClickListener(this);
     	saveButton.setOnClickListener(this);
     	publishToChatterButton.setOnClickListener(this);
+    	registerForContextMenu(publishToChatterButton);
     	editButton.setOnClickListener(this);
     	/*chatterPopUpMenu = new IcsListPopupWindow(baseActivity);
     	PopupMenuItem[] menuItems = {new PopupMenuItem(R.drawable.save_icon, R.string.app_name), new PopupMenuItem(R.drawable.edit_icon, R.string.hello)};
@@ -125,10 +130,44 @@ public class NoteDetailsScreen extends BaseFragment implements OnClickListener, 
 		}
 		else if (view == publishToChatterButton)
 		{
+			
+			publishToChatterButton.showContextMenu();
+		}
+	}
+	
+	@Override
+	public void onCreateContextMenu(ContextMenu menu, View view, ContextMenuInfo menuInfo) 
+	{
+		if (view == publishToChatterButton)
+		{
+			MenuInflater inflater = baseActivity.getMenuInflater();
+		    inflater.inflate(R.menu.chatter_context_menu, menu);
+            menu.setHeaderView(this.inflater.inflate(R.layout.chatter_menu_header_view_layout, null));
+        }		
+		super.onCreateContextMenu(menu, view, menuInfo);
+	}
+	
+	@Override
+	public boolean onContextItemSelected(MenuItem item) 
+	{
+		if (item.getItemId() == R.id.chatter_menu_post_my_feed)
+		{
 			TASK = PUBLISH_TO_MY_CHATTER_FEED;
 			showFullScreenProgresIndicator();
 			executeAsyncTask();
 		}
+		else if (item.getItemId() == R.id.chatter_menu_post_user_feed)
+		{
+			Bundle args = new Bundle();
+			String publishString = EvernoteUtils.stripNoteContent(noteContent);
+		    args.putString("publishString", publishString);
+			changeScreen(new NotepriseFragment("PublishToChatterRecordsList", PublishToChatterRecordsListScreen.class, args));
+		}
+		else if (item.getItemId() == R.id.chatter_menu_post_group_feed)
+		{
+			
+		}		
+		return super.onContextItemSelected(item);
 	}
 	
 	@Override

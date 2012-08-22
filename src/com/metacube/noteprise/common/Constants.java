@@ -17,8 +17,8 @@ public class Constants
 	
 	
 	public static final String APP_DATA_PATH = "/Android/data/com.metacube.noteprise/data/";		
-	//public static final String EVERNOTE_HOST = "sandbox.evernote.com";	
-	public static final String EVERNOTE_HOST = "www.evernote.com";
+	public static final String EVERNOTE_HOST = "sandbox.evernote.com";	
+	//public static final String EVERNOTE_HOST = "www.evernote.com";
 		  
 	public static final String APP_NAME = "Noteprise";  
 	public static final String APP_VERSION = "1.0";

@@ -195,7 +195,7 @@ public class BaseFragment extends Fragment
 	public void doTaskInBackground()
 	{
 		//Override this method in subclassses to do background tasks.
-		NotepriseLogger.logMessage("Starting AsyncTask now..");
+		//NotepriseLogger.logMessage("Starting AsyncTask now..");
 	}
 	
 	public void onTaskCancelled()
