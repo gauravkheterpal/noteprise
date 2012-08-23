@@ -241,8 +241,7 @@ public class SalesforceRecordsList extends BaseFragment implements OnItemClickLi
 			recordsAdapter.showCheckList();
 		}
 		else if (view == saveRecordSelectionButton)
-		{
-			
+		{			
 			ArrayList<String> selectedRecords = recordsAdapter.getCheckedItemsList();
 			if (selectedRecords.size() > 0)
 			{

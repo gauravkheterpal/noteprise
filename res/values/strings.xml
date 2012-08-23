@@ -7,5 +7,7 @@
     <string name="choose_object_prompt">Choose a object</string>
     <string name="choose_field_prompt">Choose a field</string>
     <string name="choose_notebook_prompt">Select a Notebook</string>
+    
+    <string name="chatter_menu_header_view_text">Publish To Chatter</string>
 
 </resources>
