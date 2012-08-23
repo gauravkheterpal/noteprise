@@ -348,6 +348,7 @@ public class EvernoteUtils
 	public static Note updateNote(String authToken, Client client,Note note){
 		try 
 		{			
+			System.out.println("++++++++++++++++Updating");
 			 return client.updateNote(authToken, note);
 		} 
 		catch (EDAMUserException e) 

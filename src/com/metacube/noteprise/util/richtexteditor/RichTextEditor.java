@@ -279,81 +279,81 @@ public class RichTextEditor extends LinearLayout implements ColorPickerDialog.On
             }
 		});
 		
-		final Button linkButton = (Button)findViewById(R.id.link);
+//		final Button linkButton = (Button)findViewById(R.id.link);
+//		
+//		linkButton.setOnClickListener(new Button.OnClickListener() {
+//            public void onClick(View v) {
+//            	
+//            	AlertDialog.Builder alert = new AlertDialog.Builder(RichTextEditor.this.getContext());
+//
+//            	alert.setTitle("Link");
+//            	alert.setMessage("Enter URL:");
+//
+//            	final LinearLayout layout = new LinearLayout(RichTextEditor.this.getContext());
+//            	layout.setPadding(10, 0, 10, 0);
+//            	
+//            	final EditText input = new EditText(RichTextEditor.this.getContext());
+//            	input.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT,LayoutParams.FILL_PARENT));
+//            	input.setText("http://");
+//            	
+//            	layout.addView(input);
+//            	
+//            	alert.setView(layout);
+//
+//            	alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+//            	public void onClick(DialogInterface dialog, int whichButton) {
+//            		String linkUrl = input.getText().toString();
+//            		
+//            		if(!linkUrl.equals("") && !linkUrl.equals("http://"))
+//            		{
+//	            		int selectionStart = content.getSelectionStart();
+//	                	int selectionEnd = content.getSelectionEnd();
+//	                	
+//	                	if(selectionStart != selectionEnd)
+//	                	{
+//		                	if (selectionStart > selectionEnd){
+//		                		int temp = selectionEnd;
+//		                		selectionEnd = selectionStart;
+//		                		selectionStart = temp;
+//		                	}
+//		                	
+//		            		Spannable str = content.getText();
+//		        			str.setSpan(new URLSpan(linkUrl),  selectionStart, selectionEnd, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+//	                	}
+//            		}
+//            	  }
+//            	});
+//
+//            	alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+//            	  public void onClick(DialogInterface dialog, int whichButton) {
+//            	    // Canceled.
+//            	  }
+//            	});
+//
+//            	alert.show();
+//            	
+//            }
+//		});
 		
-		linkButton.setOnClickListener(new Button.OnClickListener() {
-            public void onClick(View v) {
-            	
-            	AlertDialog.Builder alert = new AlertDialog.Builder(RichTextEditor.this.getContext());
-
-            	alert.setTitle("Link");
-            	alert.setMessage("Enter URL:");
-
-            	final LinearLayout layout = new LinearLayout(RichTextEditor.this.getContext());
-            	layout.setPadding(10, 0, 10, 0);
-            	
-            	final EditText input = new EditText(RichTextEditor.this.getContext());
-            	input.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT,LayoutParams.FILL_PARENT));
-            	input.setText("http://");
-            	
-            	layout.addView(input);
-            	
-            	alert.setView(layout);
-
-            	alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-            	public void onClick(DialogInterface dialog, int whichButton) {
-            		String linkUrl = input.getText().toString();
-            		
-            		if(!linkUrl.equals("") && !linkUrl.equals("http://"))
-            		{
-	            		int selectionStart = content.getSelectionStart();
-	                	int selectionEnd = content.getSelectionEnd();
-	                	
-	                	if(selectionStart != selectionEnd)
-	                	{
-		                	if (selectionStart > selectionEnd){
-		                		int temp = selectionEnd;
-		                		selectionEnd = selectionStart;
-		                		selectionStart = temp;
-		                	}
-		                	
-		            		Spannable str = content.getText();
-		        			str.setSpan(new URLSpan(linkUrl),  selectionStart, selectionEnd, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-	                	}
-            		}
-            	  }
-            	});
-
-            	alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            	  public void onClick(DialogInterface dialog, int whichButton) {
-            	    // Canceled.
-            	  }
-            	});
-
-            	alert.show();
-            	
-            }
-		});
-		
-		final Button sizeButton = (Button)findViewById(R.id.size);
-		
-		sizeButton.setOnClickListener(new Button.OnClickListener() {
-            public void onClick(View v) {
-            	
-	            TextSizeDialog colorDlg = new TextSizeDialog(RichTextEditor.this.getContext(), (TextSizeDialog.OnSizeChangedListener)RichTextEditor.this);
-            	colorDlg.show();
-            }
-		});
-		
-		final Button colorButton = (Button)findViewById(R.id.color);
-		
-		colorButton.setOnClickListener(new Button.OnClickListener() {
-            public void onClick(View v) {
-            	
-	            ColorPickerDialog colorDlg = new ColorPickerDialog(RichTextEditor.this.getContext(), (ColorPickerDialog.OnColorChangedListener)RichTextEditor.this, 0);
-            	colorDlg.show();
-            }
-		});
+//		final Button sizeButton = (Button)findViewById(R.id.size);
+//		
+//		sizeButton.setOnClickListener(new Button.OnClickListener() {
+//            public void onClick(View v) {
+//            	
+//	            TextSizeDialog colorDlg = new TextSizeDialog(RichTextEditor.this.getContext(), (TextSizeDialog.OnSizeChangedListener)RichTextEditor.this);
+//            	colorDlg.show();
+//            }
+//		});
+//		
+//		final Button colorButton = (Button)findViewById(R.id.color);
+//		
+//		colorButton.setOnClickListener(new Button.OnClickListener() {
+//            public void onClick(View v) {
+//            	
+//	            ColorPickerDialog colorDlg = new ColorPickerDialog(RichTextEditor.this.getContext(), (ColorPickerDialog.OnColorChangedListener)RichTextEditor.this, 0);
+//            	colorDlg.show();
+//            }
+//		});
 	}
 	
 	public void colorChanged(int color) 

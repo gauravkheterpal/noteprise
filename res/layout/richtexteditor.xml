@@ -44,7 +44,7 @@
 		            android:textOff="U"
 		            android:textColor="#464646" />
 		            
-		<Button
+		<!--<Button
 					android:id="@+id/size"
 					android:background="@drawable/button_toggle"
 		            android:layout_width="wrap_content"  
@@ -69,7 +69,7 @@
 		            android:layout_height="wrap_content"
 		            android:textSize="10dip"
 		            android:text=" LINK "
-		            android:textColor="#464646" /> 
+		            android:textColor="#464646" /> -->
 		           
 		<ToggleButton
 					android:id="@+id/html"

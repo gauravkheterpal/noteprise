@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView.BufferType;
 
 import com.evernote.edam.error.EDAMNotFoundException;
 import com.evernote.edam.error.EDAMSystemException;
@@ -23,10 +24,12 @@ import com.evernote.edam.notestore.NoteStore.Client;
 import com.evernote.edam.type.Note;
 import com.metacube.noteprise.R;
 import com.metacube.noteprise.common.BaseFragment;
+import com.metacube.noteprise.common.Constants;
 import com.metacube.noteprise.evernote.EvernoteUtils;
 import com.metacube.noteprise.util.NotepriseLogger;
 import com.metacube.noteprise.util.Utilities;
 import com.metacube.noteprise.util.richtexteditor.Html;
+import com.metacube.noteprise.util.richtexteditor.RichTextEditor;
 
 public class NoteEditScreen extends BaseFragment implements OnClickListener, android.content.DialogInterface.OnClickListener, OnTouchListener
 {
@@ -40,6 +43,7 @@ public class NoteEditScreen extends BaseFragment implements OnClickListener, and
 	int GET_DATA = 0, SAVE_DATA = 1, CURRENT_TASK = 0;
 	Integer GET_NOTE_DATA = 0, UPDATE_NOTE = 1, TASK = 0, deletionId = null;
 	String saveString;
+	RichTextEditor richTexteditor;
 	@Override
 	public void onAttach(Activity activity) 
 	{
@@ -82,8 +86,6 @@ public class NoteEditScreen extends BaseFragment implements OnClickListener, and
 	{
 		if(view == updateButton)
 		{ 
-			String content = noteContenteditText.getText().toString().trim();
-			NotepriseLogger.logMessage(content);
 			TASK = UPDATE_NOTE;
 			showFullScreenProgresIndicator();
 			executeAsyncTask();
@@ -158,17 +160,24 @@ public class NoteEditScreen extends BaseFragment implements OnClickListener, and
 		if (TASK == GET_NOTE_DATA)
 		{
 			hideFullScreenProgresIndicator();			
-	    	noteTitle = note.getTitle();
+	    	//noteTitle = note.getTitle();
 	    	noteContent = note.getContent();
-	    	
-	    	//saveString = EvernoteUtils.stripEvernoteSuffixAndPrefix(noteContent);//EvernoteUtils.stripNoteContent(note.getContent());
-	    	noteContenteditText.setText(Html.fromHtml(noteContent).toString());
+	    	NotepriseLogger.logMessage(noteContent);
+	    	saveString= noteContent.replace(Constants.NOTE_PREFIX, "");
+	    	saveString= noteContent.replace(Constants.NOTE_SUFFIX, "");
+	    	//saveString = EvernoteUtils.stripEvernoteSuffixAndPrefix(noteContent);//EvernoteUtils.stroteContent(note.getContent());
+	    	noteContenteditText.setText(Html.fromHtml(saveString));
 	    	
 		}
 		else if (TASK == UPDATE_NOTE)
 		{
-			note.setContent(Html.toHtml(noteContenteditText.getText()));
-			hideFullScreenProgresIndicator();	
+			
+			note.setContent(Constants.NOTE_PREFIX +Html.toHtml(noteContenteditText.getText())+Constants.NOTE_SUFFIX);			
+			note.setContent(note.getContent().replace("<br>", "<br />"));
+			note.setContent(note.getContent().replace("&#160;", ""));
+			NotepriseLogger.logMessage(note.getContent());
+			hideFullScreenProgresIndicator();
+			EvernoteUtils.updateNote(authToken, client, note);
 			finishScreen();
 		}
 	}
